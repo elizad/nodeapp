@@ -5,7 +5,7 @@ header.site-header
     if menuContent != null
         nav
             ul
-                each link in menuContent.getGroup('menu.menuLinks').toArray()
+                each link in menuContent.data.menuLinks
                     li
-                        a(href=link.getLink("link").url(ctx.linkResolver))
-                            != link.getText("label")
+                        a(href=PrismicDOM.Link.url(link.link, ctx.linkResolver))
+                            != link.label
